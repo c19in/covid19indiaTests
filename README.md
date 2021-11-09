@@ -20,17 +20,17 @@ Filenames are of the form `<data-folder>/<date>/<state-code>_CRD.csv`.
 
 Rows represent districts. Columns are district name, confirmed, recovered, deceased, tested. All values should be cumulative.
 
-Extra columns may be needed, e.g., covid19india gives source url for testing data. Most bulletins would also give a state total for some or all columns. These should be in a special row whose district name is "_Total_". Whenever possible, only data available in the bulletin should be filled in, and others should be inferred.
+Extra columns may be needed, e.g., covid19india gives source url for testing data. Most bulletins would also give a state total for some or all columns. These should be in a special row whose district name is `"_Total_"`. Whenever possible, only data available in the bulletin should be filled in, and others should be inferred.
 
-States for which no direct data are available should have only the_Total_ row. The district names to be finally used may depend on the state (e.g., state name for Delhi, Chandigarh, "Unknown" for UP, Goa). We should follow covid19india conventions.
+States for which no district-level data are available should have only the `_Total_` row. The district names to be finally used may depend on the state (e.g., state name for Delhi, Chandigarh, "Unknown" for UP, Goa). We should follow covid19india conventions.
 
 There may be discrepancies between the total row and district total. We will worry about this later.
 
 We will need
 
 - Code to create daily CSV files from API endpoints
-- Code to create daily CSV files from the easy sources (i e. HTML)
-- Code to convert daily CSV files to agreed API endpoints
+- Code to create daily CSV files from the easy sources (i.e., HTML)
+- Code to convert daily CSV files to aggregated API endpoints
 - Code to check whether these mappings are inverses of each other
 
 ### Vaccination data
