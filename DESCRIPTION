@@ -1,0 +1,14 @@
+Package: covid19indiaTests
+Version: 0.0-1
+Date: 2021-11-10
+Type: Package
+Title: Checks for Data in covid19india Format
+Authors@R: c(person("Deepayan", "Sarkar", role = c("aut", "cre"),
+	            email = "deepayan.sarkar@r-project.org",
+		    comment = c(ORCID = "0000-0003-4107-1553")))
+Description: Tools for checking accuracy and consistency of India
+	     COVID-19 data provided in the covid19india API format.
+LazyData: yes
+License: MIT
+Depends: R (>= 3.0)
+Imports: stats, jsonlite
