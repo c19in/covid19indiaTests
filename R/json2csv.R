@@ -166,7 +166,10 @@ json2districts <- function(src = NULL, dest = NULL, verbose = TRUE, columns = TR
 
 
     ## Loop through states and collect results in a list
-    ## FIXME: What to do if no district-level data? Could use state data instead, with 
+    ## 
+    ## FIXME: What to do if no district-level data? Could use state
+    ## data instead, with district name 'Other' (or Delhi / Chandigarh
+    ## / Lakshadweep for these three states to be consistent with covid19india)
 
     ## Use dates starting from "2020-01-30", but many dates will be
     ## missing, so check
@@ -214,3 +217,8 @@ json2districts <- function(src = NULL, dest = NULL, verbose = TRUE, columns = TR
     write.csv(districts[columns], file = file.path(dest, "districts.csv"),
               row.names = FALSE, quote = FALSE, na = "")
 }
+
+
+
+    
+

@@ -9,6 +9,6 @@ Authors@R: c(person("Deepayan", "Sarkar", role = c("aut", "cre"),
 Description: Tools for checking accuracy and consistency of India
 	     COVID-19 data provided in the covid19india API format.
 LazyData: yes
-License: MIT
+License: GPL-3
 Depends: R (>= 3.0)
 Imports: stats, jsonlite

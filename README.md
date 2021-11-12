@@ -18,7 +18,8 @@ A specific proposal for this "standard" CSV format is the following:
 
 Filenames are of the form `<data-folder>/<date>/<state-code>_CRD.csv`.
 
-Rows represent districts. Columns are district name, confirmed, recovered, deceased, tested. All values should be cumulative.
+Rows represent districts. Columns are district name, confirmed,
+recovered, deceased, other, tested. All values should be cumulative.
 
 Extra columns may be needed, e.g., covid19india gives source url for testing data. Most bulletins would also give a state total for some or all columns. These should be in a special row whose district name is `"_Total_"`. Whenever possible, only data available in the bulletin should be filled in, and others should be inferred.
 

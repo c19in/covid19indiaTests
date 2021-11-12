@@ -2,7 +2,13 @@
 import(stats)
 import(jsonlite) # TODO restrict later
 
-export(json2states, json2districts)
+## file conversion tools
+export(json2states, json2districts, json2dailycsv)
 
+## utilties
+export(count_districts)
+
+## constants
+export(STATE.NAMES, STATE.CODES)
 
 
