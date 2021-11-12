@@ -1,5 +1,8 @@
 
 import(stats)
-importFrom(jsonlite, read_json)
+import(jsonlite) # TODO restrict later
 
-export()
+export(json2states, json2districts)
+
+
+

@@ -117,7 +117,6 @@ if (FALSE)
     })
     row.names(cowin.districts) <- NULL
     dput(cowin.districts)
-    
 }
 
 cowin.districts <-

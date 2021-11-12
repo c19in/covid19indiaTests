@@ -71,7 +71,7 @@ Specific tests that should be done on JSON / CSV API endpoints:
 
 ### Generating daily data
 
-There are two possible pathways, starting either from JSON endpoints or from CSV endpoints. We should have two corresponding scripts, e.g., json2dailycsv and csv2dailycsv. These may involve multiple files, so one way to control source and destination locations is through environment variables, say DAILY_CSV_DIR, JSON_API_DIR, and CSV_API_DIR.
+There are two possible pathways, starting either from JSON endpoints or from CSV endpoints. We should have two corresponding scripts, e.g., json2dailycsv and csv2dailycsv. These may involve multiple files, so one way to control source and destination locations is through environment variables, say `DAILY_CSV_DIR`, `JSON_API_DIR`, and `CSV_API_DIR`.
 
 We should also be able to convert to / from any project-specific CSV formats used.
 
