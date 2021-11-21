@@ -18,16 +18,17 @@ extractNumbers <- function(x)
     ans
 }
 
-extractStateDataByDate <- function(D, jdata, add.unassigned = TRUE, verbose = TRUE)
+extractStateDataByDate <- function(D, jdata, SCODES = STATE.CODES, add.unassigned = TRUE, verbose = TRUE)
 {
     ldate <- 
-        lapply(STATE.CODES,
+        lapply(SCODES,
                function(S)
                {
                    x <- jdata[[S]]$dates[[D]]
                    if (is.null(x)) NULL
                    else extractNumbers(x)
                })
+    if (is.null(names(ldate))) names(ldate) <- SCODES # default gives state names as names because STATE.CODES is named
     ddate <- do.call(rbind, ldate)
     if (is.null(ddate))
         return(NULL)

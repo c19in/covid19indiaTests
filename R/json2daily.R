@@ -5,7 +5,12 @@
 ## Filename format: ${DAILYCSV_DIR}/<date>/<state-code>_CRD.csv
 
 ## Most of this is similar to json2districts(), but only do one state
-## at a time
+## at a time. In addition to the "districts" component with
+## district-level data, there is a state level component (named by
+## state code) which should give state total. This should go in a
+## special row with District="_STATE_". We should probably also have a
+## column for (a) notes, and (b) tested data source. But are these in
+## the json files?
 
 json2dailycsv <- function(src = NULL, dest = NULL, scode = NULL,
                           verbose = TRUE, columns = TRUE)
@@ -33,14 +38,19 @@ json2dailycsv <- function(src = NULL, dest = NULL, scode = NULL,
 
     if (verbose) message("Reading file for ", SCODE)
     file <- file.path(src, sprintf("timeseries-%s.min.json", SCODE))
-    jdata <- read_json(file)[[SCODE]][["districts"]]
+    jdata <- read_json(file)
+    jdata_districts <- jdata[[SCODE]][["districts"]]
+    jdata_state <- jdata[SCODE] # note: keep list structure so that we can use extractStateDataByDate()
 
     for (date in DATES)
     {
-        df <- extractDistrictDataByDate(date, jdata = jdata, STATE = SCODE)
+        df <- extractDistrictDataByDate(date, jdata = jdata_districts, STATE = SCODE)
         if (!is.null(df)) # Otherwise no data for this date, skip
         {
             message(date, ", ", nrow(df))
+            state_total <- extractStateDataByDate(date, jdata = jdata_state, SCODES = SCODE, add.unassigned = FALSE, verbose = TRUE)
+            state_total$District <- "_STATE_"
+            df <- rbind(df, state_total[names(df)]) # because names in different order
             if (!dir.exists(file.path(dest, date)))
                 dir.create(file.path(dest, date))
             write.csv(df[columns],
